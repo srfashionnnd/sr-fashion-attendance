@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SR Fashion — Staff Scan</title>
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/kiosk.css">
+</head>
+<body>
+
+  <main class="kiosk">
+
+    <!-- ================= IDLE STATE ================= -->
+    <section class="idle-state" id="idleState">
+      <div class="scan-ring">
+        <svg class="scan-ring__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="16" width="3" height="32" fill="currentColor"/>
+          <rect x="16" y="16" width="2" height="32" fill="currentColor"/>
+          <rect x="21" y="16" width="4" height="32" fill="currentColor"/>
+          <rect x="28" y="16" width="2" height="32" fill="currentColor"/>
+          <rect x="33" y="16" width="3" height="32" fill="currentColor"/>
+          <rect x="39" y="16" width="2" height="32" fill="currentColor"/>
+          <rect x="44" y="16" width="4" height="32" fill="currentColor"/>
+          <rect x="51" y="16" width="3" height="32" fill="currentColor"/>
+        </svg>
+        <div class="scan-beam"></div>
+      </div>
+
+      <h1 class="idle-title">Scan Your Staff&nbsp;ID</h1>
+      <p class="idle-sub">Hold your ID card to the scanner</p>
+
+      <div class="idle-clock" id="idleClock"></div>
+    </section>
+
+    <!-- ================= RESULT OVERLAY ================= -->
+    <section class="result-overlay" id="resultOverlay" aria-live="assertive">
+      <div class="result-icon" id="resultIcon"></div>
+      <p class="result-greeting" id="resultGreeting"></p>
+      <h2 class="result-name" id="resultName"></h2>
+      <p class="result-status" id="resultStatus"></p>
+      <p class="result-detail" id="resultDetail"></p>
+    </section>
+
+    <!-- Always-focused hidden input that receives the barcode scanner's keystrokes -->
+    <input type="text" id="scanInput" class="scan-input" autocomplete="off" autofocus>
+
+    <a href="login.html" class="admin-link">Admin</a>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/kiosk.js"></script>
+</body>
+</html>

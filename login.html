@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SR Fashion — Admin Login</title>
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+  <main class="login-screen">
+    <div class="login-card glass">
+      <div class="brand">
+        <div class="brand-mark">SR</div>
+        <div class="brand-word">Fashion</div>
+        <p class="brand-sub">Staff Attendance — Admin Access</p>
+      </div>
+
+      <div class="pin-dots" id="pinDots" aria-live="polite">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <p class="pin-error" id="pinError" role="alert"></p>
+
+      <div class="keypad" id="keypad">
+        <button class="key" data-key="1">1</button>
+        <button class="key" data-key="2">2</button>
+        <button class="key" data-key="3">3</button>
+        <button class="key" data-key="4">4</button>
+        <button class="key" data-key="5">5</button>
+        <button class="key" data-key="6">6</button>
+        <button class="key" data-key="7">7</button>
+        <button class="key" data-key="8">8</button>
+        <button class="key" data-key="9">9</button>
+        <button class="key key-ghost" data-key="clear">Clear</button>
+        <button class="key" data-key="0">0</button>
+        <button class="key key-ghost" data-key="back">⌫</button>
+      </div>
+
+      <button class="btn-enter" id="btnEnter" disabled>Enter</button>
+    </div>
+
+    <p class="footer-note">SR Fashion · Eidgah Kaman Road, Deglur Naka, Nanded</p>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

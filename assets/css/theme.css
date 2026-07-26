@@ -1,0 +1,92 @@
+
+/**
+ * theme.css
+ * ------------------------------------------------------------
+ * Design tokens shared by every page. Luxury black/gold/white,
+ * inspired by high-end fashion editorial (serif display) crossed
+ * with precise modern product UI (Apple/Notion-style sans body).
+ * ------------------------------------------------------------
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- Palette ---- */
+  --color-black:        #0a0a0a;
+  --color-charcoal:     #161616;
+  --color-charcoal-2:   #202020;
+  --color-gold:         #c9a24b;
+  --color-gold-bright:  #e4c777;
+  --color-white:        #f5f3ee;
+  --color-white-dim:    rgba(245, 243, 238, 0.6);
+  --color-line:         rgba(201, 162, 75, 0.25);
+  --color-success:      #6fae7c;
+  --color-late:         #d98f4b;
+  --color-error:        #c9615a;
+
+  /* ---- Type ---- */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ---- Spacing / Shape ---- */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+a {
+  color: var(--color-gold);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* Respect reduced-motion preference across the whole site */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+}
