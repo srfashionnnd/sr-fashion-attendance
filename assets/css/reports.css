@@ -1,0 +1,39 @@
+/**
+ * reports.css
+ */
+
+.report-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.report-controls .field {
+  min-width: 160px;
+  margin-bottom: 0;
+}
+
+.field-btn {
+  display: flex;
+}
+
+.export-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#reportTableWrap {
+  overflow-x: auto;
+}
+
+@media print {
+  .sidebar, .page-header, .report-controls, .export-actions, .btn-logout {
+    display: none !important;
+  }
+  .shell { display: block; }
+  .content { padding: 0; max-width: none; }
+  body, .kiosk, .content, .panel { background: white !important; color: black !important; }
+  table thead th, table tbody td { color: black !important; border-color: #ccc !important; }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SR Fashion — Reports</title>
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/reports.css">
+<!-- SheetJS: used only for the "Export Excel" button -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo.jpeg" class="logo-img" alt="SR Fashion">
+        <div class="brand-text">
+          <span class="title">SR Fashion</span>
+          <span class="sub">NANDED</span>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="staff.html" class="nav-link">Staff</a>
+        <a href="reports.html" class="nav-link active">Reports</a>
+        <a href="settings.html" class="nav-link">Settings</a>
+        <a href="idcard.html" class="nav-link">ID Cards</a>
+        <a href="kiosk.html" class="nav-link">Kiosk Screen</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="logout()">Log Out</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Reports</h1>
+          <p class="page-subtitle">Attendance reports, export, and WhatsApp summaries</p>
+        </div>
+      </div>
+
+      <div class="panel glass">
+        <div class="report-controls">
+          <div class="field">
+            <label>Report Type</label>
+            <select id="reportType">
+              <option value="daily">Daily</option>
+              <option value="monthly">Monthly</option>
+              <option value="yearly">Yearly</option>
+              <option value="individual">Individual Staff</option>
+              <option value="late">Late Report</option>
+              <option value="absent">Absent Report</option>
+              <option value="holiday">Holiday Report</option>
+              <option value="workingHours">Working Hours Report</option>
+              <option value="missingPunch">Missing Punch Report</option>
+            </select>
+          </div>
+
+          <div class="field" id="fieldDate">
+            <label>Date</label>
+            <input type="date" id="inputDate">
+          </div>
+
+          <div class="field" id="fieldMonth" style="display:none;">
+            <label>Month</label>
+            <input type="month" id="inputMonth">
+          </div>
+
+          <div class="field" id="fieldYear" style="display:none;">
+            <label>Year</label>
+            <input type="number" id="inputYear" min="2020" max="2100">
+          </div>
+
+          <div class="field" id="fieldRange" style="display:none;">
+            <label>From</label>
+            <input type="date" id="inputRangeStart">
+          </div>
+          <div class="field" id="fieldRangeEnd" style="display:none;">
+            <label>To</label>
+            <input type="date" id="inputRangeEnd">
+          </div>
+
+          <div class="field" id="fieldEmployee" style="display:none;">
+            <label>Employee</label>
+            <select id="inputEmployee"></select>
+          </div>
+
+          <div class="field field-btn">
+            <button class="btn btn-primary" id="btnGenerate">Generate</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel glass" id="resultPanel" style="display:none;">
+        <div class="panel-title">
+          <span id="resultTitle">Report</span>
+          <div class="export-actions">
+            <button class="btn btn-ghost btn-small" id="btnExportCsv">Export CSV</button>
+            <button class="btn btn-ghost btn-small" id="btnExportExcel">Export Excel</button>
+            <button class="btn btn-ghost btn-small" id="btnExportPdf">Print / PDF</button>
+            <button class="btn btn-primary btn-small" id="btnWhatsapp">Share on WhatsApp</button>
+          </div>
+        </div>
+        <div id="reportTableWrap"></div>
+        <p class="empty-note" id="reportEmptyNote" style="display:none;">No data found for this selection.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/auth-guard.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/admin-ui.js"></script>
+  <script src="assets/js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SR Fashion — Dashboard</title>
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/images/logo.jpeg" class="logo-img" alt="SR Fashion">
+        <div class="brand-text">
+          <span class="title">SR Fashion</span>
+          <span class="sub">NANDED</span>
+        </div>
+      </div>
+      <nav>
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="staff.html" class="nav-link">Staff</a>
+        <a href="reports.html" class="nav-link">Reports</a>
+        <a href="settings.html" class="nav-link">Settings</a>
+        <a href="idcard.html" class="nav-link">ID Cards</a>
+        <a href="kiosk.html" class="nav-link">Kiosk Screen</a>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="btn-logout" onclick="logout()">Log Out</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle" id="todayDate"></p>
+        </div>
+      </div>
+
+      <div class="card-grid" id="cardGrid">
+        <!-- stat cards injected by dashboard.js -->
+      </div>
+
+      <div class="panel glass">
+        <div class="panel-title">
+          <span>Today's Late Employees</span>
+        </div>
+        <table>
+          <thead><tr><th>Employee</th><th>Time</th></tr></thead>
+          <tbody id="lateTableBody"></tbody>
+        </table>
+        <p class="empty-note" id="lateEmptyNote" style="display:none;">No late employees today.</p>
+      </div>
+
+      <div class="panel glass">
+        <div class="panel-title">
+          <span>Missing Punch Out</span>
+        </div>
+        <table>
+          <thead><tr><th>Employee</th></tr></thead>
+          <tbody id="missingTableBody"></tbody>
+        </table>
+        <p class="empty-note" id="missingEmptyNote" style="display:none;">Everyone who punched in has punched out.</p>
+      </div>
+
+      <div class="panel glass">
+        <div class="panel-title">
+          <span>Recent Attendance</span>
+        </div>
+        <table>
+          <thead><tr><th>Employee</th><th>Type</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody id="recentTableBody"></tbody>
+        </table>
+        <p class="empty-note" id="recentEmptyNote" style="display:none;">No attendance recorded yet today.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/auth-guard.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/admin-ui.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

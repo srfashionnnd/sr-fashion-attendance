@@ -1,0 +1,203 @@
+/**
+ * kiosk.css
+ */
+
+.kiosk {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(201,162,75,0.10), transparent 65%),
+    var(--color-black);
+}
+
+/* ---------------- Idle state ---------------- */
+
+.idle-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.idle-state.hidden {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+
+.scan-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.scan-ring::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: var(--color-gold);
+  animation: spin 3.2s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.scan-ring__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-gold-bright);
+  opacity: 0.85;
+}
+
+.scan-beam {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-bright), transparent);
+  box-shadow: 0 0 10px 1px rgba(228, 199, 119, 0.6);
+  animation: sweep 2.4s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%   { top: 20%; opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { top: 80%; opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 20%; opacity: 0; }
+}
+
+.idle-title {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+}
+
+.idle-sub {
+  margin-top: 12px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-white-dim);
+}
+
+.idle-clock {
+  margin-top: 48px;
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+  color: var(--color-white-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ---------------- Result overlay ---------------- */
+
+.result-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  background: var(--color-black);
+}
+
+.result-overlay.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.result-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  font-size: 40px;
+  animation: pop 0.35s var(--ease);
+}
+
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.result-icon.success { background: rgba(111, 174, 124, 0.15); color: var(--color-success); border: 1.5px solid var(--color-success); }
+.result-icon.warn    { background: rgba(217, 143, 75, 0.15);  color: var(--color-late);    border: 1.5px solid var(--color-late); }
+.result-icon.error   { background: rgba(201, 97, 90, 0.15);   color: var(--color-error);   border: 1.5px solid var(--color-error); }
+
+.result-greeting {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white-dim);
+  margin: 0 0 6px;
+}
+
+.result-name {
+  font-size: clamp(32px, 6vw, 52px);
+  margin: 0 0 14px;
+}
+
+.result-status {
+  font-size: 18px;
+  color: var(--color-gold-bright);
+  margin: 0 0 4px;
+}
+
+.result-detail {
+  font-size: 14px;
+  color: var(--color-white-dim);
+  margin: 0;
+}
+
+/* ---------------- Hidden scan input ---------------- */
+
+.scan-input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+/* ---------------- Admin link ---------------- */
+
+.admin-link {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white-dim);
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+.admin-link:hover {
+  opacity: 1;
+}
