@@ -54,65 +54,97 @@
           <button class="btn btn-primary" id="btnDownloadPdf">Download ID Card (PDF)</button>
           <button class="btn btn-ghost" id="btnPrint">Print</button>
         </div>
+        <p style="font-size:12px; color:var(--color-white-dim); margin:14px 0 0;">
+          ⚠ When printing the PDF, set the print dialog to <strong>Actual Size / 100%</strong>
+          (turn OFF "Fit to Page"). Scaling a barcode even slightly can make it unreadable to scanners.
+        </p>
       </div>
 
       <div class="card-preview-area" id="cardPreviewArea">
 
         <!-- ============= FRONT OF CARD ============= -->
         <div class="id-card" id="cardFront">
-          <div class="card-topband"></div>
-
-          <div class="card-header">
-            <div class="card-logo">
-              <img src="assets/images/logo-cropped.jpeg" class="card-logo-img" alt="SR Fashion">
-              <div class="logo-text">
-                <span class="logo-title">SR FASHION</span>
-                <span class="logo-sub">NANDED</span>
+          <div class="card-navy-header">
+            <div class="header-logo-row">
+              <div class="logo-circle">
+                <img src="assets/images/logo-cropped.jpeg" class="header-logo-img" alt="SR Fashion">
+              </div>
+              <div class="header-text">
+                <span class="header-title">SR FASHION</span>
+                <span class="header-sub">NANDED</span>
               </div>
             </div>
+            <div class="status-badge" id="statusBadge">ACTIVE</div>
           </div>
 
-          <div class="card-body">
+          <div class="card-body-white">
             <div class="photo-box" id="photoBox">
               <span>STICK YOUR<br>PHOTO HERE</span>
             </div>
 
-            <div class="card-info">
+            <div class="info-block">
               <div class="info-name" id="cardName">—</div>
               <div class="info-designation" id="cardDesignation">—</div>
-              <div class="info-id" id="cardEmployeeId">—</div>
+
+              <div class="detail-rows">
+                <div class="detail-row"><span class="d-label">Employee ID</span><span class="d-sep">:</span><span id="cardEmployeeId">—</span></div>
+                <div class="detail-row"><span class="d-label">Department</span><span class="d-sep">:</span><span id="cardDepartment">—</span></div>
+                <div class="detail-row"><span class="d-label">Joining Date</span><span class="d-sep">:</span><span id="cardJoiningDate">—</span></div>
+                <div class="detail-row"><span class="d-label">Blood Group</span><span class="d-sep">:</span><span id="cardBloodGroup">—</span></div>
+                <div class="detail-row"><span class="d-label">Mobile No.</span><span class="d-sep">:</span><span id="cardMobile">—</span></div>
+              </div>
             </div>
           </div>
 
-          <div class="card-barcode">
+          <div class="codes-row">
             <canvas id="cardBarcode"></canvas>
           </div>
 
-          <div class="card-footer">
-            <span>📞 7588756669</span>
-            <span>@srfashion_nanded</span>
-          </div>
+          <p class="tagline">Together We Grow</p>
         </div>
 
         <!-- ============= BACK OF CARD ============= -->
         <div class="id-card id-card-back" id="cardBack">
-          <div class="card-topband"></div>
+          <div class="card-navy-header small">
+            <div class="header-logo-row centered">
+              <div class="logo-circle">
+                <img src="assets/images/logo-cropped.jpeg" class="header-logo-img" alt="SR Fashion">
+              </div>
+              <div class="header-text">
+                <span class="header-title">SR FASHION</span>
+                <span class="header-sub">NANDED</span>
+              </div>
+            </div>
+          </div>
 
-          <div class="back-content">
-            <div class="back-row"><span class="back-label">Blood Group</span><span id="cardBloodGroup">—</span></div>
-            <div class="back-row"><span class="back-label">Emergency Contact</span><span id="cardEmergencyContact">—</span></div>
-
-            <p class="back-terms">
-              This card is the property of SR Fashion. If found, please return to the address below.
-              Loss of this card must be reported to the admin immediately.
-            </p>
-
-            <div class="back-address">
-              Eidgah Kaman Road, Deglur Naka, Nanded
+          <div class="card-body-white back-body">
+            <div class="section-box light">
+              <div class="section-title">Emergency Contact</div>
+              <div class="section-row"><span>Mobile No.</span><span id="cardEmergencyContact">—</span></div>
             </div>
 
-            <img src="assets/images/instagram-qr.png" class="qr-placeholder" alt="Instagram QR">
+            <div class="section-box dark">
+              <div class="section-title gold">Terms &amp; Conditions</div>
+              <ul class="terms-list">
+                <li>Property of SR Fashion, Nanded — non-transferable.</li>
+                <li>Must be worn at all times while on duty.</li>
+                <li>If lost, contact admin immediately.</li>
+              </ul>
+            </div>
+
+            <div class="back-bottom-row">
+              <div class="address-block">
+                <strong>SR Fashion</strong><br>
+                Eidgah Kaman Road, Degloor Naka, Nanded
+              </div>
+              <div class="qr-block">
+                <img src="assets/images/instagram-qr.png" class="qr-mini" alt="Instagram QR">
+                <span>@srfashion_nanded</span>
+              </div>
+            </div>
           </div>
+
+          <p class="tagline">Wear Your Confidence</p>
         </div>
 
       </div>
