@@ -6,7 +6,7 @@
  * ------------------------------------------------------------
  */
 
-const REFRESH_MS = 15000;
+const REFRESH_MS = 4000;
 
 const cardGrid = document.getElementById('cardGrid');
 const todayDateEl = document.getElementById('todayDate');

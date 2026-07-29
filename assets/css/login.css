@@ -126,9 +126,12 @@
 }
 
 .btn-enter:disabled {
-  opacity: 0.6;
-  border: 1px solid var(--color-line);
   cursor: not-allowed;
+}
+
+.btn-enter.loading {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .btn-enter:not(:disabled):active {

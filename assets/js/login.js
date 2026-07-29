@@ -56,7 +56,9 @@
 
   async function attemptLogin() {
     enterBtn.disabled = true;
+    enterBtn.classList.add('loading');
     const result = await callApi('login', { password: pin });
+    enterBtn.classList.remove('loading');
     if (result.success) {
       sessionStorage.setItem(CONFIG.SESSION_KEY, '1');
       window.location.href = 'dashboard.html';
