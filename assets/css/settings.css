@@ -1,0 +1,8 @@
+/**
+ * settings.css
+ */
+
+#settingsForm .field,
+#passwordForm .field {
+  margin-bottom: 18px;
+}
