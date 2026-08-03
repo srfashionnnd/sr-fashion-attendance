@@ -26,3 +26,25 @@ function statusBadgeClass(status) {
   };
   return map[status] || '';
 }
+
+/**
+ * Opens/closes the mobile sidebar drawer.
+ * Call with no args to toggle, or toggleSidebar(true)/toggleSidebar(false)
+ * to force a specific state.
+ */
+function toggleSidebar(forceState) {
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (!sidebar) return;
+  const shouldOpen = forceState !== undefined ? forceState : !sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', shouldOpen);
+  if (overlay) overlay.classList.toggle('visible', shouldOpen);
+  document.body.style.overflow = shouldOpen ? 'hidden' : '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Close the drawer automatically once a nav link is tapped on mobile
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => toggleSidebar(false));
+  });
+});
