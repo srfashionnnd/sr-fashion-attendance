@@ -130,7 +130,7 @@
   flex: 1;
   display: flex;
   gap: 3mm;
-  padding: 2.1mm 3.1mm 1.7mm;
+  padding: 1.6mm 3.1mm 1.3mm;
   min-height: 0;
   overflow: hidden;
 }
@@ -163,37 +163,37 @@
   font-weight: 700;
   color: var(--card-ink);
   line-height: 1.16;
-  margin: 0 0 0.5mm 0;
+  margin: 0 0 0.3mm 0;
 }
 
 .info-designation {
   font-size: 2.05mm;
   color: var(--color-gold);
   font-weight: 600;
-  margin-top: 0.4mm;
+  margin-top: 0.25mm;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding-bottom: 0.6mm;
+  padding-bottom: 0.4mm;
   border-bottom: 0.2mm solid #e3e3e3;
-  margin-bottom: 0.8mm;
+  margin-bottom: 0.5mm;
   line-height: 1.14;
 }
 
 .detail-rows {
   display: flex;
   flex-direction: column;
-  gap: 0.7mm;
-  margin-top: 1.2mm;
+  gap: 0.2mm;
+  margin-top: 0.6mm;
 }
 
 .detail-row {
   display: flex;
   gap: 1.2mm;
   font-size: 2.05mm;
-  line-height: 1.12;
+  line-height: 1.05;
   color: var(--card-ink);
   white-space: nowrap;
-  margin-bottom: 0.35mm;
+  margin-bottom: 0.08mm;
 }
 
 .d-label {
@@ -212,7 +212,7 @@
   display: flex;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 1.2mm;
+  margin-top: 0.4mm;
 }
 
 .codes-row canvas {
@@ -228,7 +228,7 @@
   font-size: 1.78mm;
   color: var(--card-grey);
   line-height: 1.16;
-  margin: 0.95mm 0 1.6mm;
+  margin: 0.4mm 0 0.9mm;
   flex-shrink: 0;
 }
 
@@ -253,14 +253,14 @@
 
 .section-box.dark {
   background: var(--card-navy);
-  padding: 0.95mm 1.8mm;
+  padding: 0.7mm 1.8mm;
 }
 
 .section-title {
   font-size: 2mm;
   font-weight: 700;
   letter-spacing: 0.03em;
-  margin-bottom: 0.45mm;
+  margin-bottom: 0.3mm;
   color: var(--card-ink);
 }
 
@@ -284,14 +284,14 @@
 }
 
 .terms-list li {
-  margin-bottom: 0.25mm;
+  margin-bottom: 0.15mm;
 }
 
 .back-bottom-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.25mm;
+  margin-top: 0.6mm;
 }
 
 .address-block {
@@ -305,7 +305,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6mm;
+  gap: 0.4mm;
 }
 
 .qr-mini {

@@ -65,6 +65,44 @@
     </main>
   </div>
 
+  <!-- ---------------- Mark Attendance Modal ---------------- -->
+  <div class="modal-backdrop" id="attendanceModalBackdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="attendanceModalTitle" style="font-size:20px;">Mark Attendance</h2>
+        <button class="modal-close" id="btnCloseAttendanceModal">&times;</button>
+      </div>
+
+      <form id="attendanceForm">
+        <input type="hidden" id="aEmployeeId">
+
+        <div class="field">
+          <label>Date</label>
+          <input type="date" id="aDate" required>
+        </div>
+
+        <div class="field">
+          <label>Status</label>
+          <select id="aStatus" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Half Day">Half Day</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Reason *</label>
+          <input type="text" id="aReason" placeholder="e.g. On approved leave, forgot to punch, shop closed early…" required>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="btnCancelAttendanceModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btnSaveAttendance">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- ---------------- Add / Edit Staff Modal ---------------- -->
   <div class="modal-backdrop" id="staffModalBackdrop">
     <div class="modal">

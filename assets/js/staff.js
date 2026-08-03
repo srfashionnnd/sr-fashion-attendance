@@ -50,6 +50,7 @@ function renderTable(list) {
       <td><span class="badge ${statusBadgeClass(s.Status)}">${s.Status}</span></td>
       <td style="white-space:nowrap;">
         <button class="btn btn-ghost btn-small" onclick="editStaff('${s.EmployeeID}')">Edit</button>
+        <button class="btn btn-ghost btn-small" onclick="openAttendanceModal('${s.EmployeeID}', '${s.Name}')">Mark Attendance</button>
         ${s.Status === 'Active'
           ? `<button class="btn btn-ghost btn-small" onclick="toggleStatus('${s.EmployeeID}', 'deactivate')">Deactivate</button>`
           : `<button class="btn btn-ghost btn-small" onclick="toggleStatus('${s.EmployeeID}', 'activate')">Activate</button>`}
@@ -142,6 +143,56 @@ staffForm.addEventListener('submit', async (e) => {
     loadStaff();
   } else {
     showToast(res.error || 'Could not save staff.', 'error');
+  }
+});
+
+// ---------------- Mark Attendance (manual present/absent/half day override) ----------------
+
+const attendanceModalBackdrop = document.getElementById('attendanceModalBackdrop');
+const attendanceModalTitle = document.getElementById('attendanceModalTitle');
+const attendanceForm = document.getElementById('attendanceForm');
+
+function todayISO() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function openAttendanceModal(employeeId, name) {
+  attendanceForm.reset();
+  document.getElementById('aEmployeeId').value = employeeId;
+  document.getElementById('aDate').value = todayISO();
+  document.getElementById('aStatus').value = 'Present';
+  attendanceModalTitle.textContent = 'Mark Attendance — ' + name;
+  attendanceModalBackdrop.classList.add('visible');
+}
+
+function closeAttendanceModal() {
+  attendanceModalBackdrop.classList.remove('visible');
+}
+
+document.getElementById('btnCloseAttendanceModal').addEventListener('click', closeAttendanceModal);
+document.getElementById('btnCancelAttendanceModal').addEventListener('click', closeAttendanceModal);
+attendanceModalBackdrop.addEventListener('click', (e) => { if (e.target === attendanceModalBackdrop) closeAttendanceModal(); });
+
+attendanceForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const payload = {
+    employeeId: document.getElementById('aEmployeeId').value,
+    date: document.getElementById('aDate').value,
+    status: document.getElementById('aStatus').value,
+    reason: document.getElementById('aReason').value.trim()
+  };
+
+  const saveBtn = document.getElementById('btnSaveAttendance');
+  saveBtn.disabled = true;
+  const res = await callApi('setManualAttendance', payload);
+  saveBtn.disabled = false;
+
+  if (res.success) {
+    showToast('Attendance marked: ' + payload.status, 'success');
+    closeAttendanceModal();
+  } else {
+    showToast(res.error || 'Could not save attendance.', 'error');
   }
 });
 
